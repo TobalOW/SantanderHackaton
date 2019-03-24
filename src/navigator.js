@@ -38,8 +38,8 @@ const drawerStack = createDrawerNavigator({
 );
 
 export const Main = createSwitchNavigator({
-    app: { screen: drawerStack },
   logIn: { screen: LogInStack },
+  app: { screen: drawerStack },
 
 },
 {
