@@ -19,12 +19,12 @@ export default class MainScreen extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      active: false,
+      active: true,
     };
   }
 
   render() {
-    const icon = this.state.active ? require('../../assets/VN01.png') : require('../../assets/VN01a.png')
+    const icon = this.state.active ? require('../../assets/VN02.png') : require('../../assets/VN02a.png')
 
     return (
       <View style={styles.container}>
@@ -36,13 +36,13 @@ export default class MainScreen extends Component {
             >
             <View style={{ width: 50, height: 50 }} />
           </TouchableWithoutFeedback>
-            <TouchableWithoutFeedback
-              onPress={() => this.setState({
-                active: !this.state.active
-              })}
-              style={{ marginTop: 300, marginLeft: 300 }}
-            >
-            <View style={{ width: 40, height: 40, marginTop: 335, marginLeft: 300 }} />
+          <TouchableWithoutFeedback
+            onPress={() => this.setState({
+              active: !this.state.active
+            })}
+            style={{ marginTop: 300, marginLeft: 300 }}
+          >
+            <View style={{ width: 170, height: 40, marginTop: 75, marginLeft: 190 }} />
           </TouchableWithoutFeedback>
           </View>
         </ImageBackground>

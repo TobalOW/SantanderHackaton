@@ -18,37 +18,12 @@ import parentMainScreen from './screens/parent/MainScreen';
 import parentProfileScreen from './screens/parent/ProfileScreen';
 import parentHistoryScreen from './screens/parent/HistoryScreen';
 import parentBankScreen from './screens/parent/BankScreen';
+import parentRewardScreen from './screens/parent/RewardScreen';
 import childMainScreen from './screens/child/MainScreen';
-
-const LogInStack = createStackNavigator({
-  auth: { screen: AuthScreen },
-},
-{ headerMode: 'screen' }
-);
-
-// Child navigator
-const childAppStack = createStackNavigator({
-  main: { screen: childMainScreen },
-  },
-  {
-  initialRouteName: 'main'
-  }
-);
-
-childAppStack.navigationOptions = () => {
-  const drawerLockMode = 'locked-closed';
-  return {
-    drawerLockMode,
-  };
-};
-
-const drawerChildStack = createDrawerNavigator({
-  home: { screen: childAppStack }
-}, {
-  contentComponent: drawerContentComponents,
-}
-);
-// Parent navigator
+import childProfileScreen from './screens/child/ProfileScreen';
+import childHistoryScreen from './screens/child/HistoryScreen';
+import childBankScreen from './screens/child/BankScreen';
+import childRewardScreen from './screens/child/RewardScreen';
 
 const ProfileTabIcon = ({ tintColor }) => (
     <Feather name="user" color={tintColor} style={{ fontSize: 20 }} />
@@ -66,19 +41,82 @@ const BankTabIcon = ({ tintColor }) => (
     <MaterialIcons name="attach-money" color={tintColor} style={{ fontSize: 20 }} />
 );
 
+const RewardTabIcon = ({ tintColor }) => (
+    <MaterialCommunityIcons name="gift" color={tintColor} style={{ fontSize: 20 }} />
+);
+
+const LogInStack = createStackNavigator({
+  auth: { screen: AuthScreen },
+},
+{ headerMode: 'screen' }
+);
+
+// Child navigator
+const childAppStack = createMaterialBottomTabNavigator({
+  profile: {
+    screen: childProfileScreen,
+    navigationOptions: {
+      tabBarIcon: ProfileTabIcon,
+      title: 'Perfil'
+    }
+  },
+  history: {
+    screen: childHistoryScreen,
+    navigationOptions: {
+      tabBarIcon: HistoryTabIcon,
+      title: 'Ganancias'
+    }
+  },
+  main: {
+    screen: childMainScreen,
+    navigationOptions: {
+      tabBarIcon: TaskTabIcon,
+      title: 'Tareas'
+    }
+  },
+  bank: {
+    screen: childBankScreen,
+    navigationOptions: {
+      tabBarIcon: BankTabIcon,
+      title: 'Banco'
+    }
+   },
+  reward: {
+    screen: childRewardScreen,
+    navigationOptions: {
+      tabBarIcon: RewardTabIcon,
+      title: 'Premios'
+    }
+   },
+  },
+  {
+    initialRouteName: 'main',
+    activeColor: '#ED0F21',
+    inactiveColor: '#333333',
+    barStyle: { backgroundColor: 'white' },
+  }
+);
+
+childAppStack.navigationOptions = () => {
+  const drawerLockMode = 'locked-closed';
+  return {
+    drawerLockMode,
+  };
+};
+
+const drawerChildStack = createDrawerNavigator({
+  home: { screen: childAppStack }
+}, {
+  contentComponent: drawerContentComponents,
+}
+);
+// Parent navigator
 const parentAppStack = createMaterialBottomTabNavigator({
   profile: {
     screen: parentProfileScreen,
     navigationOptions: {
       tabBarIcon: ProfileTabIcon,
       title: 'Perfil'
-    }
-  },
-  main: {
-    screen: parentMainScreen,
-    navigationOptions: {
-      tabBarIcon: TaskTabIcon,
-      title: 'Tareas'
     }
   },
   history: {
@@ -88,11 +126,25 @@ const parentAppStack = createMaterialBottomTabNavigator({
       title: 'Ganancias'
     }
   },
+  main: {
+    screen: parentMainScreen,
+    navigationOptions: {
+      tabBarIcon: TaskTabIcon,
+      title: 'Tareas'
+    }
+  },
   bank: {
     screen: parentBankScreen,
     navigationOptions: {
       tabBarIcon: BankTabIcon,
       title: 'Banco'
+    }
+   },
+  reward: {
+    screen: parentRewardScreen,
+    navigationOptions: {
+      tabBarIcon: RewardTabIcon,
+      title: 'Premios'
     }
    },
   },

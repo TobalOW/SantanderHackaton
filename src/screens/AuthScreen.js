@@ -16,7 +16,7 @@ export default class AuthScreen extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      user: "cristobalmiranda1@gmail.com",
+      user: "niño2",
       password: "123456",
       loadingButton: false,
       error: ""
@@ -43,13 +43,12 @@ export default class AuthScreen extends Component {
             loadingButton: false
           });
           //necesito el tipo child o parent
-          storageServices.setItem("token", res.data.token).then(() => {
-            if (res.data.type === "parent") {
-              this.props.navigation.navigate("parentApp");
-            } else if (res.data.type === "child") {
-              this.props.navigation.navigate("childApp");
-            }
-          });
+          if (res.data.type === "parent") {
+            this.props.navigation.navigate("parentApp");
+          } else if (res.data.type === "child") {
+            this.props.navigation.navigate("childApp");
+          }
+
         } else if (res.data.status === "fail") {
           this.setState({
             loadingButton: false,
