@@ -69,7 +69,7 @@ export default class HistoryScreen extends Component {
       {x: "2019-04-12", y: 150}
     ];
     return (
-      <View style={styles.container}>
+      <View style={[styles.container]}>
         <Navbar
           openDrawer={() => this.props.navigation.openDrawer()}
           goTask={() => this.props.navigation.navigate("main")}
@@ -87,7 +87,16 @@ export default class HistoryScreen extends Component {
             data={data}
             value={this.state.childSelected}
             onChangeText={value => this.setState({childSelected: value})}
-            containerStyle={{width: "70%", alignSelf: "center"}}
+            containerStyle={{
+              width: "90%",
+              alignSelf: "center",
+              backgroundColor: "#FFFF",
+              paddingTop: 1,
+              paddingLeft: 20,
+              paddingRight: 20,
+              paddingBottom: 1,
+              borderRadius: 10
+            }}
           />
         </View>
         <View

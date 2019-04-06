@@ -18,8 +18,8 @@ export default class BankScreen extends Component {
           openDrawer={() => this.props.navigation.openDrawer()}
           goTask={() => this.props.navigation.navigate("main")}
         />
-        <View style={{flex: 1, backgroundColor: "grey"}}>
-          <View style={{flex: 1, backgroundColor: "grey"}}>
+        <View style={{flex: 1, backgroundColor: "#D7D6D6"}}>
+          <View style={{flex: 1}}>
             <View
               style={{
                 backgroundColor: "white",
@@ -102,7 +102,7 @@ export default class BankScreen extends Component {
                 }}
                 source={require("../../assets/Calendario.png")}
               />
-              <Text style={{fontSize: 17, color: "white"}}>
+              <Text style={{fontSize: 17, color: "black"}}>
                 ¡Racha de <Text style={{fontWeight: "bold"}}>12 dias</Text>!
               </Text>
             </View>
