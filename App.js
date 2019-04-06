@@ -3,6 +3,7 @@ import { Font } from 'expo';
 import { View } from 'react-native';
 import { MainNavigator } from './src/navigator';
 
+console.disableYellowBox = true;
 
 export default class App extends React.Component {
   async componentDidMount() {

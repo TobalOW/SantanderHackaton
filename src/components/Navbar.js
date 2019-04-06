@@ -27,7 +27,7 @@ export default class Navbar extends Component {
               <Text
               onPress={() => this.props.goTask()}
               style={{ color: 'red' }}
-              >+ <Text style={{ color: 'black' }}>5</Text></Text>
+              >+<Text style={{ color: 'black' }}>5</Text></Text>
             </View>
           </View>
         </View>
