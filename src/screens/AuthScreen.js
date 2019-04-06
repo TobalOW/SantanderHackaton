@@ -77,7 +77,7 @@ export default class AuthScreen extends Component {
             }}
           >
             <Image
-              source={require("./../../assets/logo-santander.png")}
+              source={require("./../assets/logo-santander.png")}
               style={styles.img}
             />
           </View>
