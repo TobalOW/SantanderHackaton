@@ -16,7 +16,7 @@ export default class AuthScreen extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      user: "cristobalmiranda1@gmail.com",
+      user: "niño2",
       password: "123456",
       loadingButton: false,
       error: ""
