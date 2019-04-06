@@ -1,10 +1,10 @@
 {
-  "devToolsPort": 19003,
+  "devToolsPort": 19002,
   "expoServerPort": 19000,
   "packagerPort": 19001,
-  "packagerPid": 7939,
-  "expoServerNgrokUrl": "https://4s-zzs.conectiexpo.app.exp.direct",
-  "packagerNgrokUrl": "https://packager.4s-zzs.conectiexpo.app.exp.direct",
-  "ngrokPid": 7960,
+  "packagerPid": 18444,
+  "expoServerNgrokUrl": "https://4s-zzs.anonymous.santanderhackaton.exp.direct",
+  "packagerNgrokUrl": "https://packager.4s-zzs.anonymous.santanderhackaton.exp.direct",
+  "ngrokPid": 18468,
   "webpackServerPort": null
 }
