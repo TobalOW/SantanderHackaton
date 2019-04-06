@@ -16,7 +16,7 @@ export default class AuthScreen extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      user: "cristobalmiranda1@gmail.com",
+      user: "ignacioyanjari1@gmail.com",
       password: "123456",
       loadingButton: false,
       error: ""
@@ -43,11 +43,11 @@ export default class AuthScreen extends Component {
             loadingButton: false
           });
           //necesito el tipo child o parent
-            if (res.data.type === "parent") {
-              this.props.navigation.navigate("parentApp");
-            } else if (res.data.type === "child") {
-              this.props.navigation.navigate("childApp");
-            }
+          if (res.data.type === "parent") {
+            this.props.navigation.navigate("parentApp");
+          } else if (res.data.type === "child") {
+            this.props.navigation.navigate("childApp");
+          }
         } else if (res.data.status === "fail") {
           this.setState({
             loadingButton: false,
@@ -69,16 +69,29 @@ export default class AuthScreen extends Component {
         <View containerStyle={{height: "70%", padding: 0}}>
           <View
             style={{
-              height: "50%",
+              height: "25%",
               justifyContent: "center",
               alignItems: "center"
             }}
           >
             <Image
               source={require("./../assets/logo-santander.png")}
-              style={styles.img}
+              style={[styles.img, {maxWidth: "80%"}]}
             />
           </View>
+          <View
+            style={{
+              height: "25%",
+              justifyContent: "center",
+              alignItems: "center"
+            }}
+          >
+            <Image
+              source={require("./../assets/chanchito.png")}
+              style={[styles.img, {marginBottom: 40, maxWidth: "100%"}]}
+            />
+          </View>
+
           <View style={{height: "50%", width: "100%", padding: 0}}>
             <FormInput
               onChangeText={v => this.onChangeText("user", v)}
@@ -108,7 +121,8 @@ export default class AuthScreen extends Component {
                 onPress={() => this.login()}
               />
             </View>
-            <Text style={styles.errorTextStyle}>{this.state.error}</Text>
+            <Text style={styles.textStyle}> ¡ Registrate aqui ! </Text>
+            <Text style={styles.errorTextStyle}> {this.state.error} </Text>
           </View>
         </View>
       </View>
@@ -129,7 +143,12 @@ const styles = StyleSheet.create({
   },
   img: {
     flex: 1,
-    maxWidth: "80%",
     resizeMode: "contain"
+  },
+  textStyle: {
+    fontSize: 17,
+    alignSelf: "center",
+    color: "white",
+    padding: 5
   }
 });
