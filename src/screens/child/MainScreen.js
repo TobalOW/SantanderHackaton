@@ -50,6 +50,11 @@ export default class MainScreen extends Component {
     return (
       <View style={styles.container}>
         <Text>I'm the MainScreen component</Text>
+          <Button
+            title="Ingresar"
+            loading={this.state.loadingButton}
+            onPress={() => this.navigation.openDrawer()}
+          />
       </View>
     );
   }

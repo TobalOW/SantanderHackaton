@@ -1,9 +1,15 @@
 import React from 'react';
+import { Font } from 'expo';
 import { View } from 'react-native';
 import { MainNavigator } from './src/navigator';
 
 
 export default class App extends React.Component {
+  async componentDidMount() {
+    await Font.loadAsync({
+      'open-sans': require('./src/assets/OpenSans-Regular.ttf'),
+    });
+  }
   render() {
     return (
       <View style={{ flex: 1 }}>

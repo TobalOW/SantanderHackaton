@@ -1,9 +1,10 @@
 {
-  "devToolsPort": 19002,
+  "devToolsPort": 19003,
   "expoServerPort": 19000,
   "packagerPort": 19001,
-  "packagerPid": 1498,
+  "packagerPid": 7939,
   "expoServerNgrokUrl": "https://4s-zzs.conectiexpo.app.exp.direct",
   "packagerNgrokUrl": "https://packager.4s-zzs.conectiexpo.app.exp.direct",
-  "ngrokPid": 1847
+  "ngrokPid": 7960,
+  "webpackServerPort": null
 }

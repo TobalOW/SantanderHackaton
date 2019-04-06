@@ -29,4 +29,4 @@ class LocalStorage {
   }
 }
 
-export const storageService = new LocalStorage();
+export const storageServices = new LocalStorage();
