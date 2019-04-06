@@ -13,48 +13,10 @@ import {
  import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 
 export default class MainScreen extends Component {
-  static navigationOptions = ({ navigation }) => {
-    // const { params = {} } = navigation.state;
-    return {
-      headerLeft:
-        <Button
-          title=''
-          containerStyle={{ paddingLeft: 10 }}
-          type='clear'
-          icon={
-            <Icon
-              name='menu'
-              size={40}
-              color='#e13f4c'
-            />
-          }
-          onPress={() => navigation.openDrawer()}
-        />,
-      // headerRight:
-      //   <Button
-      //     title=''
-      //     clear
-      //     containerStyle={{ paddingRight: 10 }}
-      //     icon={
-      //       <IconEvilIcons
-      //         name='search'
-      //         size={40}
-      //         color='#e13f4c'
-      //       />
-      //     }
-      //   />,
-      headerTransparent: true
-    };
-  }
   render() {
     return (
       <View style={styles.container}>
         <Text>I'm the MainScreen component</Text>
-          <Button
-            title="Ingresar"
-            loading={this.state.loadingButton}
-            onPress={() => this.navigation.openDrawer()}
-          />
       </View>
     );
   }

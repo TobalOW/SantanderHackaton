@@ -85,7 +85,7 @@ const childAppStack = createMaterialBottomTabNavigator({
     screen: childRewardScreen,
     navigationOptions: {
       tabBarIcon: RewardTabIcon,
-      title: 'Recompensas'
+      title: 'Premios'
     }
    },
   },
@@ -144,7 +144,7 @@ const parentAppStack = createMaterialBottomTabNavigator({
     screen: parentRewardScreen,
     navigationOptions: {
       tabBarIcon: RewardTabIcon,
-      title: 'Recompensas'
+      title: 'Premios'
     }
    },
   },
