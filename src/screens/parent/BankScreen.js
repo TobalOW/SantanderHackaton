@@ -5,55 +5,54 @@ import {
   View,
   Text,
   StyleSheet,
+  Image,
+  Dimensions
 } from 'react-native';
 import {
-  Button
- } from 'react-native-elements';
+  ListItem
+} from 'react-native-elements';
  import { Constants } from 'expo';
- import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
+ import Feather from 'react-native-vector-icons/Feather';
+
+import Navbar from '../../components/Navbar';
+
+const SCREEN_WIDTH = Dimensions.get('window').width;
 
 export default class BankScreen extends Component {
-  static navigationOptions = ({ navigation }) => {
-    // const { params = {} } = navigation.state;
-    return {
-      headerLeft:
-        <Button
-          title=''
-          containerStyle={{ paddingLeft: 10 }}
-          type='clear'
-          icon={
-            <Icon
-              name='menu'
-              size={40}
-              color='#e13f4c'
-            />
-          }
-          onPress={() => navigation.openDrawer()}
-        />,
-      // headerRight:
-      //   <Button
-      //     title=''
-      //     clear
-      //     containerStyle={{ paddingRight: 10 }}
-      //     icon={
-      //       <IconEvilIcons
-      //         name='search'
-      //         size={40}
-      //         color='#e13f4c'
-      //       />
-      //     }
-      //   />,
-      headerTransparent: true
-    };
-  }
+
+
   render() {
     return (
       <View style={styles.container}>
-        <Text>I'm the BankScreen component</Text>
-          <Button
-            title="Ingresar"
-            onPress={() => this.props.navigation.openDrawer()}
-          />
+        <Navbar
+          openDrawer={() => this.props.navigation.openDrawer()}
+          goTask={() => this.props.navigation.navigate('main')}
+        />
+        <View style={{ flex: 1, backgroundColor: 'grey' }}>
+          <View style={{ flex: 1, backgroundColor: 'grey' }}>
+            <View style={{ backgroundColor: 'white', margin: 10, height: 45, borderRadius: 45 }}>
+              <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' }}>
+                <View style={{ heigth: 45, padding: 13, alignItems: 'center', justifyContent: 'center' }}>
+                  <Text style={{ fontSize: 17 }}>Cristobal</Text>
+                </View>
+                <View style={{ justifyContent: 'flex-end', alignItems: 'flex-end', paddingRight: 15 }}>
+                  <Feather name="chevron-down" color={'black'} style={{ fontSize: 20 }} />
+                </View>
+              </View>
+            </View>
+            <View style={{ backgroundColor: 'white', marginLeft: 10, marginRight: 10, height: 45, borderRadius: 45 }}>
+              <View style={{ flexDirection: 'row', justifyContent: 'center', alignItems: 'center' }}>
+                <View style={{ heigth: 45, padding: 13, alignItems: 'center', justifyContent: 'center' }}>
+                  <Text style={{ fontSize: 17 }}>Monto actual:<Text style={{ fontWeight: 'bold' }}> $5000</Text></Text>
+                </View>
+              </View>
+            </View>
+            <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+              <Image style={{ width: SCREEN_WIDTH - 20, height: 400, resizeMode: 'contain' }} source={require('../../assets/Calendario.png')} />
+                <Text style={{ fontSize: 17, color: 'white' }}>¡Racha de <Text style={{ fontWeight: 'bold' }}>12 dias</Text>!</Text>
+          </View>
+          </View>
+        </View>
       </View>
     );
   }
