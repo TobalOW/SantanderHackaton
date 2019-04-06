@@ -1,7 +1,7 @@
 /* @flow */
 
 import React, {Component} from "react";
-import {View, Text, StyleSheet, FlatList} from "react-native";
+import {View, Text, StyleSheet, FlatList, ImageBackground, Dimensions} from "react-native";
 import {Divider} from "react-native-elements";
 import {Constants} from "expo";
 import CheckBox from "react-native-check-box";
@@ -46,15 +46,18 @@ export default class MainScreen extends Component {
 
   renderCards(item) {
     return (
-      <View style={{height: 40, backgroundColor: "transparent"}}>
+      <View style={{height: 40, backgroundColor: "transparent" }}>
         <View
           style={{
-            padding: 10,
+            paddingLeft: 25,
+            paddingTop: 10,
+            paddingBottom: 9,
             justifyContent: "space-between",
-            flexDirection: "row"
+            flexDirection: "row",
+            backgroundColor: !item.checked? "white" : "transparent",
           }}
         >
-          <Text style={{fontWeight: "bold"}}>{item.name}</Text>
+          <Text >{item.name}</Text>
           <View
             style={{
               width: 150,
@@ -72,15 +75,10 @@ export default class MainScreen extends Component {
                 alignSelf: "center"
               }}
             />
-            <CheckBox
-              style={{height: 5, width: 5}}
-              onClick={() => {
-                this.setState({
-                  isChecked: !this.state.isChecked
-                });
-              }}
-              isChecked={item.checked}
-            />
+          {item.checked ?
+            <Feather name="check" color={"green"} style={{fontSize: 20}} /> :
+            <Feather name="x" color={"red"} style={{fontSize: 20}} />
+          }
           </View>
         </View>
         {item.id < 3 ? <Divider style={{backgroundColor: "black"}} /> : null}
@@ -95,7 +93,7 @@ export default class MainScreen extends Component {
           style={{
             height: 120,
             borderRadius: 25,
-            backgroundColor: "white",
+            backgroundColor: "#E6E6E6",
             margin: 15
           }}
         >
@@ -124,8 +122,8 @@ export default class MainScreen extends Component {
 
   renderContent() {
     return (
-      <View style={{flex: 1, backgroundColor: "#D7D6D6", paddingTop: 10}}>
-        <Text style={{textAlign: "center", fontSize: 20, color: "black"}}>
+      <View style={{flex: 1, paddingTop: 10}}>
+        <Text style={{textAlign: "center", fontSize: 20, color: "white"}}>
           Tareas Diarias
         </Text>
         {this.renderViewCards()}
@@ -133,20 +131,25 @@ export default class MainScreen extends Component {
     );
   }
 
+
   render() {
     return (
       <View style={styles.container}>
-        <Navbar
-          openDrawer={() => this.props.navigation.openDrawer()}
-          goTask={() => this.props.navigation.navigate("main")}
-        />
-        {this.renderContent()}
-        <View style={{flex: 1, backgroundColor: "#D7D6D6"}}>
-          <Text style={{textAlign: "center", fontSize: 20, color: "black"}}>
-            Tareas Únicas
-          </Text>
-          {this.renderViewCards()}
-        </View>
+        <ImageBackground source={require('../../assets/BG.jpg')} style={{ height: Dimensions.get('window').height }}>
+          <View style={{ flex: 1 }}>
+            <Navbar
+              openDrawer={() => this.props.navigation.openDrawer()}
+              goTask={() => this.props.navigation.navigate("main")}
+            />
+            {this.renderContent()}
+            <View style={{flex: 1}}>
+              <Text style={{textAlign: "center", fontSize: 20, color: "white"}}>
+                Tareas Especiales
+              </Text>
+              {this.renderViewCards()}
+            </View>
+          </View>
+        </ImageBackground>
       </View>
     );
   }
