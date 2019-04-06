@@ -13,10 +13,10 @@ export default class RewardScreen extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      childSelected: "Niño 1",
+      childSelected: "Cristobal",
       data: [
         {
-          child: "Niño 1",
+          child: "Cristobal",
           values: [
             {
               id: 1,
@@ -36,7 +36,7 @@ export default class RewardScreen extends Component {
           ]
         },
         {
-          child: "Niño 2",
+          child: "Ignacio",
           values: [
             {
               id: 1,
@@ -56,7 +56,7 @@ export default class RewardScreen extends Component {
           ]
         },
         {
-          child: "Niño 3",
+          child: "Nicolás",
           values: [
             {
               id: 1,
@@ -147,7 +147,7 @@ export default class RewardScreen extends Component {
   }
 
   render() {
-    let children = [{value: "Niño 1"}, {value: "Niño 2"}, {value: "Niño 3"}];
+    let children = [{value: "Cristobal"}, {value: "Ignacio"}, {value: "Nicolás"}];
     return (
       <View style={[styles.container, {backgroundColor: "#D7D6D6"}]}>
         <ImageBackground source={require('../../assets/BG.jpg')} style={{ height: Dimensions.get('window').height }}>
