@@ -42,7 +42,6 @@ export default class AuthScreen extends Component {
           this.setState({
             loadingButton: false
           });
-
           //necesito el tipo child o parent
           storageServices.setItem("token", res.data.token).then(() => {
             if (res.data.type === "parent") {

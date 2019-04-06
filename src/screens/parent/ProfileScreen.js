@@ -23,6 +23,9 @@ export default class MainScreen extends Component {
           openDrawer={() => this.props.navigation.openDrawer()}
           goTask={() => this.props.navigation.navigate('main')}
         />
+        <View style={{ flex: 1, backgroundColor: 'grey' }}>
+          <Text style={{ textAlign: 'center', fontSize: 20, color: 'white' }}> Tareas Diarias </Text>
+        </View>
       </View>
     );
   }
