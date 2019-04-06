@@ -24,7 +24,7 @@ export default class RewardScreen extends Component {
   render() {
     const icon = this.state.active
       ? require("../../assets/VN03.png")
-      : require("../../assets/VN02a.png");
+      : require("../../assets/VN03a.png");
 
     return (
       <View style={styles.container}>
@@ -39,6 +39,14 @@ export default class RewardScreen extends Component {
             >
               <View style={{width: 50, height: 50}} />
             </TouchableWithoutFeedback>
+            <TouchableWithoutFeedback
+              onPress={() => this.setState({
+                active: !this.state.active
+              })}
+              style={{ marginTop: 300, marginLeft: 300 }}
+            >
+            <View style={{ width: 350, height: 40, marginTop: 250, marginLeft: 20 }} />
+          </TouchableWithoutFeedback>
           </View>
         </ImageBackground>
       </View>
